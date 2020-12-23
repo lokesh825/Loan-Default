@@ -41,8 +41,7 @@ def normalise(x,xmin,xmax):
 
 
 def main():
-    image = Image.open('Loan Application.png')
-    st.image(image, caption='Lokesh Bhirud', width=1000, use_column_width=False, clamp=False, channels='RGB', format='JPEG')
+    
     st.title("Loan Predictor")
     html_temp = """
     <div style="background-color:#FF0000;padding:10px">
