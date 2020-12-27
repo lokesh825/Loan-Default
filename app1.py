@@ -50,18 +50,18 @@ def main():
     """
     st.markdown(html_temp,unsafe_allow_html=True)
     Gender = st.radio("Select your Gender",('Male', 'Female'))
-    Married = st.radio("Select your Marital Status",('Married', 'Single'))
+    Married = st.radio("Are you Married",('Yes', 'No'))
     Education = st.radio("Select your Education",('Graduate', 'Not Graduate'))
-    Self_Employed = st.radio( "Select your Employement type",('Self_Employed', 'Job'))
+    Self_Employed = st.radio( "Are you Self Employed",('Yes', 'No'))
     ApplicantIncome = st.number_input(label='Enter your Monthly Salary in INR', min_value=None, max_value=None)
     ai=ApplicantIncome
     CoapplicantIncome = st.number_input(label='Enter Co-applicant Monthly Salary in INR', min_value=None, max_value=None,format='%f')
     ci=CoapplicantIncome
     LoanAmount = st.number_input(label='Enter LoanAmount Required in INR', min_value=None, max_value=None,format='%f')
     la=LoanAmount
-    Loan_Amount_Term = st.number_input(label='Enter LoanTerm in Months', min_value=60, max_value=None,format='%f')
+    Loan_Amount_Term = st.number_input(label='Enter Loan Amount Term in Months', min_value=60, max_value=None,format='%f')
     lat=Loan_Amount_Term
-    Credit_History =  st.radio("Select if Credit Score GReater than 750 and No if Credit Score Less than 750",('Yes', 'No'))
+    Credit_History =  st.radio("Select your Credit History: ",('Yes', 'No'))
     Rural =  st.radio("Enter your Region you lIve in ",('Rural', 'Urban'))
     
     if float((ai+ci)*(lat)) >=(1.2)*la:
@@ -73,7 +73,7 @@ def main():
         Gender = 1
     else:
         Gender = 0    
-    if Married=='Married':
+    if Married=='Yes':
         Married = 1
     else:
         Married = 0 
@@ -81,7 +81,7 @@ def main():
         Education = 1
     else:
         Education = 0 
-    if Self_Employed=='Self_Employed':
+    if Self_Employed=='Yes':
         Self_Employed = 1
     else:
         Self_Employed = 0      
@@ -112,9 +112,9 @@ def main():
             result=0
       
         if  result ==1 and k==1:
-            result= str('Congratulation you are eligible for the loan')
+            result= str('Approved')
         else:
-            result= str('Sorry you are not eligible for the loan')
+            result= str('Rejected')
     st.success(result)
  
 
